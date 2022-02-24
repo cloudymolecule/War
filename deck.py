@@ -1,8 +1,8 @@
 from card import Card
+import random
+
 class Deck:
-    
-    
-    
+
     def __init__(self):
         self.all_cards = []
 
@@ -12,6 +12,11 @@ class Deck:
         for suit in suits:
             for rank in ranks:
                 self.all_cards.append(Card(suit, rank))
+        
+        random.shuffle(self.all_cards)
+
+    def deal_card(self):
+        return self.all_cards.pop()
 
     def __str__(self):
         return f'There are {len(self.all_cards)} card/s in this deck'
